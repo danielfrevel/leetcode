@@ -20,7 +20,3 @@ def make_mapping(digit_sequence):
     for d, c in enumerate(digit_sequence):
         mapping[c] = d
     return mapping
-
-
-
-print(mapping)
