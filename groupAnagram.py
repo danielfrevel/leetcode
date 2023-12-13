@@ -6,22 +6,14 @@ class Solution(object):
         """
         result = {}
 
-
-        seenAnagrams = set()
         for i in strs: 
-            sortedI = [c for c in i]
-            sortedI.sort()
-            sortedI = "".join(sortedI)
-            if sortedI not in seenAnagrams:
-                seenAnagrams.add(sortedI)
+            sortedI = "".join(sorted(i))
             if sortedI not in result:
                 result[sortedI] = [i]
             else: 
                 result[sortedI].append(i)
 
-        return result.values()
-
+        return list(result.values())
 
 sol = Solution()
-
 print(sol.groupAnagrams(["eat", "tea", "tan", "ate", "nat", "bat"]))
