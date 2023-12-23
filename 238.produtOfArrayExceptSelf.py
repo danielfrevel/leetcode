@@ -2,19 +2,17 @@ from functools import reduce
 
 class Solution(object):
     def productExceptSelf(self, nums):
-        """
-        :type nums: List[int]
-        :rtype: List[int]
-        """
-        res = []
-        for i in range(len(nums)):            
-            temp = nums.pop(i)
-            product = reduce((lambda x, y: x * y), nums, 1)
-
-            res.append(product)
-            nums.insert(i, temp)
-
-        return res
+        n = len(nums)
+        l = 1
+        r = 1
+        result = [0]*n
+        for i in range(n):
+            result[i] = l
+            l *= nums[i]
+        for i in range(n-1,-1,-1):
+            result[i] *= r
+            r *= nums[i]
+        return result
 
 
 sol = Solution()
